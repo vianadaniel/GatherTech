@@ -6,7 +6,7 @@ tenantid: ac5fed9e-9902-4aca-b955-f67e0057dde3
 username: teste
 useremail: test@asda.com
 
-### Get Users
+### Create Users
 
 POST http://localhost:3000/users
 Content-Type: application/json
