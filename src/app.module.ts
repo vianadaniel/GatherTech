@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
-import { ConfigModule } from '@nestjs/config';
+// import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -11,9 +11,9 @@ import { ConfigModule } from '@nestjs/config';
       `mongodb://${process.env.MONGODB_HOST ?? 'localhost:27017'}/nest`,
     ),
     UsersModule,
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
+    // ConfigModule.forRoot({
+    //   isGlobal: true,
+    // }),
   ],
   controllers: [AppController],
   providers: [AppService],
