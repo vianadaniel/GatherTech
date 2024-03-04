@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug TaxRepostSerice",
+      "name": "Debug Service",
       "type": "node",
       "request": "launch",
       "runtimeVersion": "18.17.0",
