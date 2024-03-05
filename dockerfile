@@ -13,6 +13,8 @@ RUN npm install
 # Copie o restante dos arquivos para o diretório de trabalho
 COPY . .
 
+ENV MONGODB_HOST=mongodb:27017
+
 # Exponha a porta em que o servidor NestJS está sendo executado (opcional)
 EXPOSE 3000
 
