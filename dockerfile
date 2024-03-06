@@ -1,22 +1,23 @@
-# Use a imagem oficial do Node.js como base
+# Use the official Node.js image as a base
 FROM node:18-alpine
 
-# Defina o diretório de trabalho dentro do contêiner
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copie os arquivos necessários (package.json, package-lock.json) para o diretório de trabalho
+# Copy the necessary files (package.json, package-lock.json) to the working directory
 COPY package*.json ./
 
-# Instale as dependências do projeto
+# Install project dependencies
 RUN npm install
 
-# Copie o restante dos arquivos para o diretório de trabalho
+# Copy the rest of the files to the working directory
 COPY . .
 
 ENV MONGODB_HOST=mongodb:27017
 
-# Exponha a porta em que o servidor NestJS está sendo executado (opcional)
+# Expose the port on which the NestJS server is running (optional)
 EXPOSE 3000
 
-# Comando para iniciar o aplicativo quando o contêiner for iniciado
+# Command to start the application when the container is started
 CMD ["npm", "run", "start:prod"]
+
