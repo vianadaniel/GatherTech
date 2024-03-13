@@ -22,56 +22,36 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# GatherTech
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This repository contains a project setup for running a Nest.js application using either Vagrant or Docker.
 
-## Installation
+## Vagrant Setup
 
-```bash
-$ npm install
-```
+To use Vagrant for development, follow these steps:
 
-## Running the app
+1. Install Vagrant and VirtualBox (if not already installed).
+2. Clone this repository.
+3. Navigate to the project directory.
+4. Run `./install.sh` to set up the Vagrant environment and start the virtual machine.
+5. Access the virtual machine with `vagrant ssh`.
+6. Inside the virtual machine, navigate to `/vagrant` to access the project files.
+7. Install dependencies with `npm install`.
+8. Start the Nest.js application with `npm start`.
 
-```bash
-# docker run
+## Docker Setup
 
-$ make up
+To use Docker for development, follow these steps:
 
-# development
-$ npm run start
+1. Install Docker and Docker Compose (if not already installed).
+2. Clone this repository.
+3. Navigate to the project directory.
+4. Run `make up` to build and start the Docker containers.
+5. Access the running Nest.js application at `http://localhost:3000`.
 
-# watch mode
-$ npm run start:dev
+## Additional Information
 
-# production mode
-$ npm run start:prod
-```
+- For Docker, the `Makefile` provides useful commands for managing the containers (`make up`, `make down`, `make restart`, etc.).
+- For Vagrant, the `Vagrantfile` and `./install.sh` after `./start.sh` handle the setup and provisioning of the Vagrant virtual machine.
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Feel free to adjust the instructions and add more details as needed for your project!
