@@ -34,10 +34,7 @@ To use Vagrant for development, follow these steps:
 2. Clone this repository.
 3. Navigate to the project directory.
 4. Run `./install.sh` to set up the Vagrant environment and start the virtual machine.
-5. Access the virtual machine with `vagrant ssh`.
-6. Inside the virtual machine, navigate to `/vagrant` to access the project files.
-7. Install dependencies with `npm install`.
-8. Start the Nest.js application with `npm start`.
+5. Run `./start.sh` after the install
 
 ## Docker Setup
 
