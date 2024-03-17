@@ -1,7 +1,7 @@
 up:
 	docker-compose up
 upd:
-	docker-compose up -d
+	docker-compose up -d mongodb
 down:
 	docker-compose down
 logs:
