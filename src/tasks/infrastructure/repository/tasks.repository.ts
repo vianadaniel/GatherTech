@@ -10,21 +10,21 @@ import { GetAllTasksDto } from '../../presentation/controllers/dtos/getAll-tasks
 @Injectable()
 export class DatabaseTasksRepository implements TasksRepository {
   constructor(
-    @InjectModel(Tasks.name) private readonly taskModel: Model<Tasks>,
+    @InjectModel(Tasks.name) private readonly tasksModel: Model<Tasks>,
   ) {}
 
   async getAll(options: GetAllTasksDto): Promise<Tasks[]> {
-    return this.taskModel.find().exec();
+    return this.tasksModel.find().exec();
   }
 
   async create(data: CreateTasksDto): Promise<Tasks> {
-    const createdTask = await this.taskModel.create(data);
+    const createdTask = await this.tasksModel.create(data);
 
     return createdTask;
   }
 
   async update(id: string, data: UpdateTasksDto): Promise<Tasks | null> {
-    const updatedTask = await this.taskModel
+    const updatedTask = await this.tasksModel
       .findByIdAndUpdate(id, data, { new: true })
       .exec();
 
@@ -32,12 +32,12 @@ export class DatabaseTasksRepository implements TasksRepository {
   }
 
   async getById(id: string): Promise<Tasks | null> {
-    const task = await this.taskModel.findById(id).exec();
+    const task = await this.tasksModel.findById(id).exec();
 
     return task;
   }
 
   async delete(id: string): Promise<void> {
-    await this.taskModel.findByIdAndDelete(id).exec();
+    await this.tasksModel.findByIdAndDelete(id).exec();
   }
 }
