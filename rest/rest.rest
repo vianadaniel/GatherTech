@@ -24,3 +24,8 @@ Content-Type: application/json
     "description": "tasks",
     "user_id": "65f7717bc995aa08e96c75da"
 }
+
+### Get all Tasks
+
+GET http://localhost:3000/tasks
+Content-Type: application/json
