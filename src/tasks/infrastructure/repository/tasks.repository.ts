@@ -6,6 +6,8 @@ import { CreateTasksDto } from '../../presentation/controllers/dtos/create-tasks
 import { UpdateTasksDto } from '../../presentation/controllers/dtos/update-tasks.dto';
 import { TasksRepository } from '../../domain/repository/tasks-repository.interface';
 import { GetAllTasksDto } from '../../presentation/controllers/dtos/getAll-tasks.dto';
+import { TasksMapper } from '../mappers/tasks.mapper';
+import TasksModel from '../../domain/models/tasks.model';
 
 @Injectable()
 export class DatabaseTasksRepository implements TasksRepository {
@@ -13,14 +15,14 @@ export class DatabaseTasksRepository implements TasksRepository {
     @InjectModel(Tasks.name) private readonly tasksModel: Model<Tasks>,
   ) {}
 
-  async getAll(options: GetAllTasksDto): Promise<Tasks[]> {
-    return this.tasksModel.find().exec();
+  async getAll(options: GetAllTasksDto): Promise<TasksModel[]> {
+    return TasksMapper.toDomainList(await this.tasksModel.find().exec());
   }
 
-  async create(data: CreateTasksDto): Promise<Tasks> {
+  async create(data: CreateTasksDto): Promise<TasksModel> {
     const createdTask = await this.tasksModel.create(data);
 
-    return createdTask;
+    return TasksMapper.toDomain(createdTask);
   }
 
   async update(id: string, data: UpdateTasksDto): Promise<Tasks | null> {
@@ -28,13 +30,13 @@ export class DatabaseTasksRepository implements TasksRepository {
       .findByIdAndUpdate(id, data, { new: true })
       .exec();
 
-    return updatedTask;
+    return TasksMapper.toDomain(updatedTask);
   }
 
   async getById(id: string): Promise<Tasks | null> {
     const task = await this.tasksModel.findById(id).exec();
 
-    return task;
+    return TasksMapper.toDomain(task);
   }
 
   async delete(id: string): Promise<void> {
