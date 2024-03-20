@@ -25,7 +25,7 @@ export class DatabaseTasksRepository implements TasksRepository {
     return TasksMapper.toDomain(createdTask);
   }
 
-  async update(id: string, data: UpdateTasksDto): Promise<Tasks | null> {
+  async update(id: string, data: UpdateTasksDto): Promise<TasksModel | null> {
     const updatedTask = await this.tasksModel
       .findByIdAndUpdate(id, data, { new: true })
       .exec();
@@ -33,7 +33,7 @@ export class DatabaseTasksRepository implements TasksRepository {
     return TasksMapper.toDomain(updatedTask);
   }
 
-  async getById(id: string): Promise<Tasks | null> {
+  async getById(id: string): Promise<TasksModel | null> {
     const task = await this.tasksModel.findById(id).exec();
 
     return TasksMapper.toDomain(task);
