@@ -2,20 +2,30 @@
 
 GET http://localhost:3000/users
 Content-Type: application/json
-tenantid: ac5fed9e-9902-4aca-b955-f67e0057dde3
-username: teste
-useremail: test@asda.com
 
 ### Create Users
 
 POST http://localhost:3000/users
 Content-Type: application/json
-tenantid: ac5fed9e-9902-4aca-b955-f67e0057dde3
-username: teste
-useremail: test@asda.com
 
 {
     "name": "teste",
     "email": "test@asda.com",
     "password": "123456"
 }
+
+### Create Tasks
+
+POST http://localhost:3000/tasks
+Content-Type: application/json
+
+{
+    "status": "pending",
+    "description": "tasks",
+    "user_id": "65fac5b00938a0d1b7a85b72"
+}
+
+### Get all Tasks
+
+GET http://localhost:3000/tasks
+Content-Type: application/json
