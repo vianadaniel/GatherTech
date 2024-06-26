@@ -8,6 +8,8 @@ sudo apt-get update
 
 sudo apt-get install -y mongodb-org
 
+sudo apt-get install openssh-server
+
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh > install_nvm.sh
 
 less install_nvm.sh
